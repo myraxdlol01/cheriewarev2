@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>cherieWare v2</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="main-title">cherieWare v2</h1>
+    <div class="subtitle">You're safe using cherieWare</div>
+    <img src="images/logo.gif" alt="cherieWare logo" class="logo" />
+    <div class="button-row">
+      <a href="pages/games.html" class="css-button-arrow--rose">Games</a>
+      <a href="" class="css-button-arrow--rose">Support</a>
+      <a href="pages/partners.html" class="css-button-arrow--rose">Partners</a>
+      <a href="pages/settings.html" class="css-button-arrow--rose">Settings</a>
+    </div>
+  </div>
+  <script>
+    // Theme code for EVERY PAGE (except settings.html)
+    const body = document.body;
+    const themeClasses = [
+      'light-mode','dark-mode','galaxy-theme','red-nebula-theme',
+      'blue-nebula-theme','bubblegum-theme','forest-theme','citrustheme'
+    ];
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme && themeClasses.includes(savedTheme)) {
+      body.classList.add(savedTheme);
+    } else {
+      body.classList.add('light-mode');
+    }
+  </script>
+</body>
+</html>

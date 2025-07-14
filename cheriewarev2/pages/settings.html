@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Settings - Theme Picker</title>
+  <link rel="stylesheet" href="../css/settings.css">
+</head>
+<body>
+  <div class="theme-selector-container">
+    <label for="theme-select">Choose Your Theme:</label>
+    <select id="theme-select">
+      <option value="light-mode">Light</option>
+      <option value="dark-mode">Dark</option>
+      <option value="galaxy-theme">Galaxy</option>
+      <option value="red-nebula-theme">Red Nebula</option>
+      <option value="blue-nebula-theme">Blue Nebula</option>
+      <option value="bubblegum-theme">Bubblegum</option>
+      <option value="forest-theme">Forest</option>
+      <option value="citrus-theme">Citrus</option>
+      <option value="pastel-theme">Pastel</option>
+      <option value="coffee-theme">Coffee</option>
+      <option value="rainbow-theme">Rainbow</option>
+    </select>
+  </div>
+  <div class="button-row">
+    <a href="../index.html" class="css-button-arrow--rose">Home</a>
+    <a href="games.html" class="css-button-arrow--rose">Games</a>
+    <a href="partners.html" class="css-button-arrow--rose">Partners</a>
+  </div>
+  <script>
+    const select = document.getElementById('theme-select');
+    const body = document.body;
+
+    // List of theme classes - now includes "citrus-theme"
+    const themeClasses = [
+      'light-mode','dark-mode','galaxy-theme','red-nebula-theme',
+      'blue-nebula-theme','bubblegum-theme','forest-theme','citrus-theme', 'pastel-theme', 'coffee-theme', 'rainbow-theme'
+    
+    ];
+
+    // On load: set theme from storage
+    const savedTheme = localStorage.getItem('theme');
+    if(savedTheme && themeClasses.includes(savedTheme)) {
+      body.classList.add(savedTheme);
+      select.value = savedTheme;
+    } else {
+      body.classList.add('light-mode'); // fallback/default
+      select.value = 'light-mode';
+    }
+
+    select.addEventListener('change', function() {
+      themeClasses.forEach(cls => body.classList.remove(cls));
+      body.classList.add(this.value);
+      localStorage.setItem('theme', this.value);
+    });
+  </script>
+</body>
+</html>
