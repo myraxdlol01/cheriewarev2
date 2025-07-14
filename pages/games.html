@@ -1,72 +1,78 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chérie's Games</title>
-  <link rel="stylesheet" href="css/games.css">
+  <link rel="stylesheet" href="../css/games.css">
 </head>
 <body>
-
   <h1>Chérie's Games</h1>
-  <p style="opacity: 0.5;">IF A PORT DOESN'T WORK, JOIN THE DISCORD SERVER AND LET US KNOW!</p>
 
   <input type="text" id="gameSearch" placeholder="Search for a game...">
-  <p class="game-counter" id="gameCount">31 games hosted</p>
+  <p class="game-counter" id="gameCount">0 games hosted</p>
 
-  <button class="myButton" onclick="goRandomGame()">🎲 Random Game</button>
+  <button class="myButton" onclick="goRandomGame()">Random Game</button>
   <br>
-<script>
-function goRandomGame() {
-  const games = [
-    "/filesgx/osu!.html",
-    "/filesgx/ddlc.html",
-    "/filesgx/deltarune.html",
-    "/filesgx/OMORI.html",
-    "/filesgx/co09.html"
-  ];
-  const random = games[Math.floor(Math.random() * games.length)];
-  window.location.href = random;
-}
-</script>
+
   <div class="game-grid" id="gameList">
     <a href="/filesgx/osu!.html"><img class="imagebutton" src="/images/gx/osu.png" alt="Osu"></a>
-    <a href="/filesgx/ddlc.html"><img class="imagebutton" src="/images/gx/ddlc.png" alt="Doki Doki Literature Club"></a>
+    <a href="/filesgx/ddlc.html"><img class="imagebutton" src="/images/gx/ddlc.jpg" alt="Doki Doki Literature Club"></a>
     <a href="/filesgx/OMORI.html"><img class="imagebutton" src="/images/gx/OMORI.png" alt="Omori"></a>
     <a href="/filesgx/co09.html"><img class="imagebutton" src="/images/gx/co09.png" alt="Class of '09"></a>
     <a href="/filesgx/Deltarune.html"><img class="imagebutton" src="/images/gx/deltarune.png" alt="Deltarune"></a>
   </div>
 
-  <button class="myButton" onclick="location.href='homepage.html'">Go Back</button>
+  <button class="myButton" onclick="location.href='../index.html'">Back to Home</button>
 
   <script>
-    // Game search
-    const searchInput = document.getElementById("gameSearch");
-    const games = document.querySelectorAll("#gameList a");
+    // Apply saved theme to body
+    (function() {
+      const themeClasses = [
+        'light-mode', 'dark-mode', 'galaxy-theme', 'red-nebula-theme',
+        'blue-nebula-theme', 'bubblegum-theme', 'forest-theme', 'citrus-theme',
+        'coffee-theme', 'pastel-theme', 'rainbow-theme'
+      ];
+      const body = document.body;
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme && themeClasses.includes(savedTheme)) {
+        body.classList.add(savedTheme);
+      } else {
+        body.classList.add('light-mode');
+      }
+    })();
 
+    // Game randomizer
+    function goRandomGame() {
+      const games = [
+        "/filesgx/osu!.html",
+        "/filesgx/ddlc.html",
+        "/filesgx/deltarune.html",
+        "/filesgx/OMORI.html",
+        "/filesgx/co09.html"
+      ];
+      const random = games[Math.floor(Math.random() * games.length)];
+      window.location.href = random;
+    }
+
+    // Game search filter
+    const searchInput = document.getElementById("gameSearch");
+    const gameLinks = document.querySelectorAll("#gameList a");
     searchInput.addEventListener("input", () => {
       const query = searchInput.value.toLowerCase();
-      games.forEach(game => {
+      gameLinks.forEach(game => {
         const alt = game.querySelector("img").alt.toLowerCase();
         game.style.display = alt.includes(query) ? "inline-block" : "none";
       });
     });
 
-    // Game counter animation
+    // Animated game count (optional)
     window.addEventListener("DOMContentLoaded", () => {
-      const allLinks = document.querySelectorAll("a[href]");
-      let gameTotal = 0;
-
-      allLinks.forEach(link => {
-        const href = link.getAttribute("href");
-        if (href.startsWith("/games/") && href.endsWith(".html")) {
-          gameTotal++;
-        }
-      });
-
+      const gameCount = document.querySelectorAll("#gameList a").length;
       const counterElement = document.getElementById("gameCount");
       let current = 0;
-
       const counter = setInterval(() => {
-        if (current < gameTotal) {
+        if (current < gameCount) {
           current++;
           const label = current === 1 ? "game hosted" : "games hosted";
           counterElement.textContent = `${current} ${label}`;
@@ -76,5 +82,5 @@ function goRandomGame() {
       }, 40);
     });
   </script>
-
-</body></html>
+</body>
+</html>
