@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+
+.myButton {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #ff69b4;
+  background-color: #ffe6f2;
+  border: 2px solid #ff69b4;
+  padding: 12px 24px;
+  border-radius: 6px;
+  box-shadow: 0 0 8px #ffb6c1;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.myButton:hover {
+  background-color: #ff69b4;
+  color: #fff;
+  box-shadow: 0 0 16px #ffb6c1;
+  transform: scale(1.05);
+}
+
+body {
+    background-color: #fff0f6;
+    color: #503c5d;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    cursor: url('Nekopara Normal Select.cur'), auto;
+}
+
+.imagebutton {
+	width: 100px;
+	height: 100px;
+	border-radius: 16px;
+			border:3px solid #ffffff;
+}
+
+.imagebutton {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 2px solid #ff69b4;
+  border-radius: 8px;
+  box-shadow: 0 0 8px #ffb6c1;
+  transition: all 0.2s ease-in-out;
+  background-color: #ffe6f2;
+}
+
+.imagebutton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ffb6c1, 0 0 40px #ffb6c1;
+  filter: brightness(1.2) contrast(1.1);
+  cursor: pointer;
+}
+
+   .imagebutton:hover {
+             transform: scale(1.08) rotate(-5deg);
+  box-shadow: 0 0 16px #ffb6c1, 0 0 32px #ffb6c1;
+  filter: brightness(1.2) contrast(1.1) drop-shadow(0 0 4px #ffb6c1);
+  cursor: pointer;
+   }
+    #terminal-input {
+    display: block;
+    margin: 30px auto;
+    padding: 14px 20px;
+    width: 80%;
+    max-width: 500px;
+    font-size: 16px;
+    color: #503c5d;
+    background-color: #fff;
+    border: 2px solid #ff69b4;
+    border-radius: 8px;
+    outline: none;
+    box-shadow: 0 0 10px #ffb6c1;
+    transition: 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  #terminal-input:focus {
+    background-color: #ffe6f2;
+    box-shadow: 0 0 15px #ffb6c1;
+  }
+
+  #terminal-input::placeholder {
+    color: #ff69b4;
+    opacity: 0.6;
+  }
+
+
+        
+.site-container {
+  max-width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.game-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+input {
+    border: none;
+    background:  #ffe6f2;
+    color: #ff69b4;
+    width: 500px;
+    padding: 10px;
+    border-radius: 20px;
+    outline: none;
+  font-family: "Poppins";
+   border: 2px solid #ff69b4;
+	text-align: center;
+}
