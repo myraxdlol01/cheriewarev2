@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
 
-/* --- THEME ROOT (DEFAULT) --- */
+
 :root {
   --background-color: #fff4fa;
   --text-color: #222;
@@ -10,7 +10,7 @@
   --link-color: #ff6392;
 }
 
-/* --- THEME VARIANTS --- */
+
 .light-mode {
   --background-color: #ffffff;
   --text-color: #000000;
@@ -107,7 +107,7 @@
   100% { background-position: 0% 50%; }
 }
 
-/* --- BASE LAYOUT --- */
+
 body {
   min-height: 100vh;
   display: flex;
@@ -210,7 +210,7 @@ label {
   right: 10px;
 }
 
-/* Game grid images */
+
 .imagebutton {
   width: 100px;
   height: 100px;
@@ -229,7 +229,7 @@ label {
   filter: brightness(1.2) contrast(1.1) drop-shadow(0 0 4px var(--button-border-color, #ffb6c1));
 }
 
-/* Responsive Design */
+
 @media (max-width: 600px) {
   .button-row {
     max-width: 99vw;

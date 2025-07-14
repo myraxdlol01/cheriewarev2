@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
 :root {
   --background-color: #fff4fa;
   --text-color: #222;
@@ -7,7 +8,7 @@
   --link-color: #ff6392;
 }
 
-/* Theme classes: only define variables! */
+
 .light-mode {
   --background-color: #ffffff;
   --text-color: #000000;
@@ -104,7 +105,7 @@
   100% { background-position: 0% 50%; }
 }
 
-/* Use ONLY variables everywhere below */
+
 html, body {
   min-height: 100vh;
   width: 100%;
@@ -115,7 +116,7 @@ html, body {
   padding: 0;
 }
 
-/* Set the default cursor everywhere */
+
 body {
   min-height: 100vh;
   display: flex;
@@ -125,7 +126,7 @@ body {
   cursor: url('Nekopara-Normal-Select.cur'), auto;
 }
 
-/* Special cursor on button hover (spaces as %20, dashes for filenames) */
+
 .myButton:hover,
 .css-button-arrow--rose:hover {
   cursor: url('Nekopara-Link-Select-NEW.cur'), pointer;

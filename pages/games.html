@@ -3,8 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chérie's Games</title>
   <link rel="stylesheet" href="../css/games.css">
+  <title>Chérie's Games</title>
+ <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Press Start 2P', monospace, Arial, sans-serif;
+    }
+  </style>
 </head>
 <body>
   <h1>Chérie's Games</h1>
@@ -15,18 +21,20 @@
   <button class="myButton" onclick="goRandomGame()">Random Game</button>
   <br>
 
-  <div class="game-grid" id="gameList">
+<div class="game-grid" id="gameList">
     <a href="/filesgx/osu!.html"><img class="imagebutton" src="/images/gx/osu.png" alt="Osu"></a>
     <a href="/filesgx/ddlc.html"><img class="imagebutton" src="/images/gx/ddlc.jpg" alt="Doki Doki Literature Club"></a>
     <a href="/filesgx/OMORI.html"><img class="imagebutton" src="/images/gx/OMORI.png" alt="Omori"></a>
     <a href="/filesgx/co09.html"><img class="imagebutton" src="/images/gx/co09.png" alt="Class of '09"></a>
     <a href="/filesgx/Deltarune.html"><img class="imagebutton" src="/images/gx/deltarune.png" alt="Deltarune"></a>
-  </div>
+    <a href="/filesgx/snake-remake-html-main/natlol/index.html"><img class="imagebutton" src="/images/gx/ekkeLl.png" alt="Snake"></a>
+    </a>
+</div>
 
   <button class="myButton" onclick="location.href='../index.html'">Back to Home</button>
 
   <script>
-    // Apply saved theme to body
+  
     (function() {
       const themeClasses = [
         'light-mode', 'dark-mode', 'galaxy-theme', 'red-nebula-theme',
@@ -42,7 +50,7 @@
       }
     })();
 
-    // Game randomizer
+
     function goRandomGame() {
       const games = [
         "/filesgx/osu!.html",
@@ -55,7 +63,7 @@
       window.location.href = random;
     }
 
-    // Game search filter
+  
     const searchInput = document.getElementById("gameSearch");
     const gameLinks = document.querySelectorAll("#gameList a");
     searchInput.addEventListener("input", () => {
@@ -66,7 +74,7 @@
       });
     });
 
-    // Animated game count (optional)
+    
     window.addEventListener("DOMContentLoaded", () => {
       const gameCount = document.querySelectorAll("#gameList a").length;
       const counterElement = document.getElementById("gameCount");

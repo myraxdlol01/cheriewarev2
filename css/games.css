@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
 
-/* Default theme variables */
+
 :root {
   --background-color: #fff0f6;
   --text-color: #503c5d;
@@ -10,7 +10,7 @@
   --link-color: #ff69b4;
 }
 
-/* ----- THEME OVERRIDES (USE DASH-CASE) ----- */
+
 .dark-mode {
   --background-color: #121212;
   --text-color: #ffffff;
@@ -107,7 +107,7 @@
   100% { background-position: 0% 50%; }
 }
 
-/* ------ CORE UI: USE VARIABLES EVERYWHERE! ------ */
+
 
 body {
   background: var(--background-color);
@@ -122,7 +122,7 @@ body {
   transition: background 0.4s, color 0.3s;
 }
 
-/* Fix: Comma between selectors! */
+
 .myButton:hover,
 .css-button-arrow--rose:hover,
 .imagebutton:hover {
@@ -139,7 +139,7 @@ h1 {
 }
 
 .myButton {
-  font-family: 'Poppins', sans-serif;
+ font-family: 'Press Start 2P', monospace, Arial, sans-serif !important;
   font-size: 16px;
   color: var(--button-text-color);
   background: var(--button-bg-color);
@@ -162,7 +162,7 @@ h1 {
   border-color: var(--link-color);
 }
 
-/* Rainbow animated button */
+
 .rainbow-theme .myButton {
   background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
   color: #fff;
@@ -175,7 +175,7 @@ h1 {
   color: #fff;
 }
 
-/* Game grid images */
+
 .imagebutton {
   width: 100px;
   height: 100px;
@@ -228,7 +228,7 @@ input[type="text"]::placeholder, #terminal-input::placeholder {
   opacity: 0.7;
 }
 
-/* Game grid */
+
 .game-grid {
   display: flex;
   flex-wrap: wrap;
@@ -243,7 +243,7 @@ input[type="text"]::placeholder, #terminal-input::placeholder {
   box-sizing: border-box;
 }
 
-/* Responsive Design */
+
 @media (max-width: 600px) {
   .game-grid {
     gap: 7px;

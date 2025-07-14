@@ -1,22 +1,22 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
-// Make your sprites big! 32 or 40 are good for pixel art
+
 const cellSize = 32;
-canvas.width = cellSize * 12;   // 384px
-canvas.height = cellSize * 12;  // 384px
+canvas.width = cellSize * 12;   
+canvas.height = cellSize * 12;  
 
 const width = canvas.width;
 const height = canvas.height;
 const cols = width / cellSize;
 const rows = height / cellSize;
 
-// === FPS CLOCKER ===
+
 let fps = 0;
 let framesThisSecond = 0;
 let lastFpsUpdate = performance.now();
 
-// === SETTINGS FROM LOCALSTORAGE ===
+
 const snakeColors = ['#48e07d', '#31c5be', '#f7d038', '#fa435a', '#8c4fa3', '#fa8334', '#2274a5'];
 const bgColors = ['#202c26', '#22223b', '#282a36', '#1a2a32', '#252525', '#1e1e1e'];
 const snakeColorIdx = Number(localStorage.getItem('snake-color-idx')) || 0;
@@ -27,7 +27,7 @@ const backgroundColor = bgColors[bgColorIdx];
 const speedSetting = Number(localStorage.getItem('snake-speed')) || 5; // 1-10
 const moveInterval = 200 - ((speedSetting - 1) * 20); // Lower is faster
 
-// === GAME STATE ===
+
 let snake = [{ x: Math.floor(cols / 2), y: Math.floor(rows / 2) }];
 let direction = { x: 0, y: 0 }; // start stationary
 let lastDirection = { x: 1, y: 0 }; // for head orientation (default right)
@@ -43,7 +43,7 @@ const colors = {
     text: '#fff'
 };
 
-// === IMAGE ASSETS WITH ROBUST LOADING ===
+
 function safeImage(src) {
     const img = new window.Image();
     img.loaded = false;
@@ -58,7 +58,7 @@ const imgSnakeBody = safeImage("snakebody.png");
 const imgSnakeHead = safeImage("snakehead.png");
 const imgApple = safeImage("apple.png");
 
-// Wait up to 1 second for images, then start regardless
+
 let started = false;
 function startGameWhenReady() {
     if (started) return;
@@ -78,7 +78,7 @@ startGameWhenReady();
 document.addEventListener('keydown', changeDirection);
 
 function gameLoop(timestamp) {
-    // --- FPS CLOCKING ---
+  
     if (timestamp - lastFpsUpdate > 1000) {
         fps = framesThisSecond;
         framesThisSecond = 0;
@@ -125,7 +125,6 @@ function draw() {
     ctx.fillStyle = colors.background;
     ctx.fillRect(0, 0, width, height);
 
-    // Draw food (apple)
     if (imgApple.loaded && imgApple.complete) {
         ctx.drawImage(imgApple, food.x * cellSize, food.y * cellSize, cellSize, cellSize);
     } else {
@@ -133,10 +132,10 @@ function draw() {
         ctx.fillRect(food.x * cellSize, food.y * cellSize, cellSize, cellSize);
     }
 
-    // Draw snake
+
     snake.forEach((segment, i) => {
         if (i === 0) {
-            // Head (with rotation)
+  
             drawHeadWithRotation(segment.x * cellSize, segment.y * cellSize, lastDirection);
         } else {
             if (imgSnakeBody.loaded && imgSnakeBody.complete) {
@@ -148,7 +147,7 @@ function draw() {
         }
     });
 
-    // Draw score
+
     ctx.fillStyle = colors.text;
     ctx.font = `${Math.round(cellSize * 0.62)}px "Press Start 2P", Arial, monospace`;
     ctx.textAlign = 'left';
@@ -156,7 +155,7 @@ function draw() {
     ctx.fillText(`High Score: ${highScore}`, 10, cellSize * 1.8);
 }
 
-// Rotates and draws the head sprite
+
 function drawHeadWithRotation(x, y, direction) {
     if (imgSnakeHead.loaded && imgSnakeHead.complete) {
         ctx.save();

@@ -146,7 +146,7 @@
     </div>
     <div class="footer"> &copy; @cherierockz & the cherie files org. 2025</div>
     <script>
-        // --- Theme ---
+ 
         function toggleTheme(theme) {
             if (theme === 'dark') {
                 document.body.style.setProperty('--pixel-bg', '#202c26');
@@ -166,14 +166,14 @@
         window.onload = function() {
             const t = localStorage.getItem('snake-theme') || 'dark';
             toggleTheme(t);
-            // Init speed slider
+         
             setSpeed(currentSpeed);
             setVolume(currentVolume);
             updateSnakeColor();
             updateBgColor();
         };
 
-        // --- Speed slider (1-10) ---
+       
         const speedSlider = document.getElementById('speedSlider');
         const speedThumb = document.getElementById('speedThumb');
         const speedValue = document.getElementById('speedValue');
@@ -204,7 +204,7 @@
             draggingSpeed = false;
         });
 
-        // --- Volume slider (0-1) ---
+      
         const volSlider = document.getElementById('volSlider');
         const volThumb = document.getElementById('volThumb');
         let draggingVol = false;
@@ -232,7 +232,7 @@
             draggingVol = false;
         });
 
-        // --- Snake color cycling ---
+     
         const snakeColors = ['#48e07d', '#31c5be', '#f7d038', '#fa435a', '#8c4fa3', '#fa8334', '#2274a5'];
         let snakeColorIdx = Number(localStorage.getItem('snake-color-idx')) || 0;
         function updateSnakeColor() {
@@ -244,7 +244,7 @@
             updateSnakeColor();
         }
 
-        // --- Background color cycling ---
+  
         const bgColors = ['#202c26', '#22223b', '#282a36', '#1a2a32', '#252525', '#1e1e1e'];
         let bgColorIdx = Number(localStorage.getItem('snake-bg-idx')) || 0;
         function updateBgColor() {
@@ -256,13 +256,13 @@
             updateBgColor();
         }
 
-        // --- Alert for unimplemented features ---
+      
         function goHome() {
     window.location.href = "index.html";
 }
 
 
-           // --- Reset all settings ---
+       
         function resetSettings() {
             if (confirm('Reset settings to default?')) {
                 setSpeed(5);
